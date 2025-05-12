@@ -1,5 +1,14 @@
 
-/* -------------------------------------------------- Base+Layout --------------------------------------------------*/ 
+/* -------------------------------------------------- Base+Layout --------------------------------------------------*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+
 body,
 html {
   margin: 0;
@@ -204,6 +213,10 @@ html {
 .tagline {
   text-shadow: 0 0 6px rgba(120, 200, 255, 0.6), 0 0 12px rgba(200, 100, 255, 0.45), 0 0 20px rgba(255, 120, 180, 0.35);
   animation: taglinePulse 6s ease-in-out infinite;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  padding-top: 1em;
+  padding-bottom: 1em;
+
 }
 
 @keyframes taglinePulse {

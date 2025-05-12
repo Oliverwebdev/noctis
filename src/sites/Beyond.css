@@ -1,126 +1,104 @@
-/* Beyond Page Responsive Styles */
-.beyond-container {
-  position: relative;
-  min-height: 100vh;
-  width: 100%;
-  background: linear-gradient(to bottom right, black, #101010, #0000ff);
-  color: white;
+/* ---------- Globals ---------- */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
   overflow: hidden;
 }
 
-.beyond-particle-background {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.3;
-  background: 
-    radial-gradient(circle at 30% 50%, rgba(100,100,255,0.1) 0%, transparent 50%),
-    radial-gradient(circle at 70% 50%, rgba(255,100,100,0.1) 0%, transparent 50%);
-  animation: backgroundPulse 10s infinite alternate;
+:root {
+  --bg:            #0b0c1a;
+  --panel:         rgba(20, 20, 35, 0.55);
+  --neon-cyan:     #00eaff;
+  --neon-pink:     #ff00ff;
+  --neon-red:      #ff004e;
 }
 
-.beyond-content-grid {
-  position: relative;
-  z-index: 10;
-  padding: 80px 20px;
+.beyond-wrapper {
+  min-height: 100vh;
+  padding: 4rem clamp(1rem, 5vw, 3rem);
+  background: radial-gradient(ellipse at top, #131425 0%, var(--bg) 100%);
+  overflow-x: hidden;
+}
+
+/* ---------- Grid ---------- */
+.role-grid {
   display: grid;
-  gap: 40px;
-  grid-template-columns: 1fr 1fr;
-  max-width: 1200px;
-  margin: 0 auto;
+  gap: 3.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr));
 }
 
-.beyond-profile-section {
-  padding: 30px;
-  border-radius: 15px;
-  transform: translateX(-50px);
-  opacity: 0;
+/* ---------- Card ---------- */
+.role-card {
+  position: relative;
+  border-radius: 20px;
+  padding: 2.8rem 2.2rem 3.2rem;
+  background: var(--panel);
+  backdrop-filter: blur(8px);
+  overflow: hidden;
 }
 
-.beyond-profile-section.revealed {
-  transform: translateX(0);
-  opacity: 1;
+/* animated neon border */
+.glow-border {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(130deg, var(--accent), var(--neon-pink), var(--neon-red));
+  filter: blur(10px);
+  z-index: -1;
+  animation: pulseGlow 8s linear infinite;
+}
+@keyframes pulseGlow {
+  0%, 100% { transform: translateY(-2px); }
+  50%      { transform: translateY(2px); }
 }
 
-.beyond-profile-header {
+/* inner content */
+.card-core { position: relative; z-index: 2; }
+
+.role-avatar {
+  width: 150px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+  box-shadow: 0 0 15px var(--accent);
+  margin-bottom: 1.4rem;
+}
+
+.role-title {
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(1.9rem, 2.5vw, 2.4rem);
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+  color: var(--accent);
 }
 
-@media (max-width: 768px) {
-  .beyond-content-grid {
-    grid-template-columns: 1fr;
-    padding: 40px 15px;
-    gap: 20px;
-  }
+.title-icon { flex-shrink: 0; }
 
-  .beyond-profile-section {
-    transform: translateY(50px);
-  }
-
-  .beyond-profile-section.revealed {
-    transform: translateY(0);
-  }
-
-  .beyond-profile-header {
-    flex-direction: column;
-    text-align: center;
-    margin-bottom: 15px;
-  }
-
-  .beyond-profile-header h2 {
-    margin-left: 0;
-    margin-top: 10px;
-  }
-
-  .beyond-profile-section p {
-    text-align: center;
-  }
+.role-desc {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 1.8rem;
 }
 
-@media (max-width: 768px) {
-  .mission-content {
-    padding: 2rem 1rem;
-  }
+.social-row { display: flex; gap: 1.4rem; }
 
-  .mission-quote {
-    font-size: 1.1rem;
-  }
+.social-btn {
+  font-size: 1.9rem;
+  transition: transform 0.25s;
+  color: inherit;
+}
+.social-btn:hover {
+  transform: scale(1.25) rotate(5deg);
+  filter: drop-shadow(0 0 6px var(--accent));
 }
 
-/* Custom Scrollbar Styling */
-.mission-container {
-  scrollbar-width: thin;
-  scrollbar-color: var(--accent-color) rgba(32, 32, 64, 0.5);
-}
-
-.mission-container::-webkit-scrollbar {
-  width: 12px;
-  background-color: rgba(32, 32, 64, 0.5);
-}
-
-.mission-container::-webkit-scrollbar-thumb {
-  background: linear-gradient(
-    45deg, 
-    var(--accent-color), 
-    rgba(64, 64, 255, 0.7)
-  );
-  border-radius: 10px;
-  border: 3px solid rgba(32, 32, 64, 0.5);
-  transition: all 0.3s ease;
-}
-
-.mission-container::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(
-    135deg, 
-    var(--accent-color), 
-    rgba(64, 64, 255, 0.9)
-  );
-  box-shadow: 0 0 15px rgba(64, 64, 255, 0.5);
-}
-
-.mission-container::-webkit-scrollbar-track {
-  background: rgba(32, 32, 64, 0.3);
-  border-radius: 10px;
+/* ---------- Responsiveness ---------- */
+@media (max-width: 1024px) {
+  .role-grid { grid-template-columns: 1fr; }   /* stapelt alles */
 }
