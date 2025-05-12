@@ -28,9 +28,10 @@
   },
   "beyond": {
     "architect": {
-      "title": "The Architect",
-      "desc": "I am the creator of Noctis, a developer exploring the boundaries between technology and consciousness."
-    },
+  "title": "The Architect",
+  "desc": "The Architect – the creator of Noctis, a visionary who dissolves the boundaries between code and consciousness, bringing you to life."
+}
+,
     "messenger": {
   "title": "The Herald",
   "desc": "The Herald – the digital envoy, carrying Noctis' message with razor-sharp precision and unshakable conviction into the minds of a new generation."

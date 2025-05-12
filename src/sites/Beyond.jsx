@@ -1,5 +1,5 @@
 import React from "react";
-import { Github, Zap, Share2, Globe } from "lucide-react";
+import { Github, Code, MessageCircle, Globe } from "lucide-react";
 import { FaTiktok } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import "./Beyond.css";
@@ -56,7 +56,7 @@ const Beyond = () => {
           id="architect"
           color="var(--neon-cyan)"
           title={t("beyond.architect.title")}
-          IconLead={Zap}
+          IconLead={Code}
           img={architectImg}
           links={[
             { href: "https://github.com/Oliverwebdev",        Icon: Github,  label: "GitHub" },
@@ -74,7 +74,7 @@ const Beyond = () => {
           id="messenger"
           color="var(--neon-red)"
           title={t("beyond.messenger.title")}
-          IconLead={Share2}
+          IconLead={MessageCircle}
           img={messengerImg}
           links={[
             { href: "https://vm.tiktok.com/ZNdYE1X7H/",   Icon: FaTiktok, label: "TikTok" }
