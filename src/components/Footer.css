@@ -9,6 +9,7 @@
   backdrop-filter: blur(12px);
   overflow: hidden;
   font-family: 'Orbitron', sans-serif;
+  z-index: 60;
 }
 
 /* Mystische Elemente */

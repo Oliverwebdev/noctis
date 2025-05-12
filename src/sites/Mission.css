@@ -52,7 +52,7 @@
 
 .mission-content {
   position: relative;
-  z-index: 10;
+  z-index: 2;
   max-width: 1200px;
   margin: 0 auto;
   padding: 4rem 2rem;
