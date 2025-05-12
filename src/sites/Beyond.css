@@ -1,12 +1,16 @@
 /* ---------- Globals ---------- */
 @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap");
 
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  
 }
+
+.landing, .beyond-wrapper { overflow: hidden; }
+
 
 :root {
   --bg:            #0b0c1a;

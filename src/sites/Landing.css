@@ -1,12 +1,8 @@
 
 /* -------------------------------------------------- Base+Layout --------------------------------------------------*/
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
+.landing, .beyond-wrapper { overflow: hidden; }
+
 
 
 body,

@@ -8,6 +8,8 @@
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
   transition: background-color 0.3s ease;
+    overflow: visible !important;   /* lässt das Dropdown herausragen */
+
 }
 
 .navbar-open {
@@ -79,7 +81,7 @@
   }
 
   .navbar-mobile-menu {
-    position: absolute;
+    position: fixed;
     top: 4rem;
     left: 0;
     width: 100%;
