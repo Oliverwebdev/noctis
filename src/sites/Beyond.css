@@ -1,0 +1,126 @@
+/* Beyond Page Responsive Styles */
+.beyond-container {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(to bottom right, black, #101010, #0000ff);
+  color: white;
+  overflow: hidden;
+}
+
+.beyond-particle-background {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.3;
+  background: 
+    radial-gradient(circle at 30% 50%, rgba(100,100,255,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 50%, rgba(255,100,100,0.1) 0%, transparent 50%);
+  animation: backgroundPulse 10s infinite alternate;
+}
+
+.beyond-content-grid {
+  position: relative;
+  z-index: 10;
+  padding: 80px 20px;
+  display: grid;
+  gap: 40px;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.beyond-profile-section {
+  padding: 30px;
+  border-radius: 15px;
+  transform: translateX(-50px);
+  opacity: 0;
+}
+
+.beyond-profile-section.revealed {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.beyond-profile-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .beyond-content-grid {
+    grid-template-columns: 1fr;
+    padding: 40px 15px;
+    gap: 20px;
+  }
+
+  .beyond-profile-section {
+    transform: translateY(50px);
+  }
+
+  .beyond-profile-section.revealed {
+    transform: translateY(0);
+  }
+
+  .beyond-profile-header {
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .beyond-profile-header h2 {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .beyond-profile-section p {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .mission-content {
+    padding: 2rem 1rem;
+  }
+
+  .mission-quote {
+    font-size: 1.1rem;
+  }
+}
+
+/* Custom Scrollbar Styling */
+.mission-container {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-color) rgba(32, 32, 64, 0.5);
+}
+
+.mission-container::-webkit-scrollbar {
+  width: 12px;
+  background-color: rgba(32, 32, 64, 0.5);
+}
+
+.mission-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    45deg, 
+    var(--accent-color), 
+    rgba(64, 64, 255, 0.7)
+  );
+  border-radius: 10px;
+  border: 3px solid rgba(32, 32, 64, 0.5);
+  transition: all 0.3s ease;
+}
+
+.mission-container::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    135deg, 
+    var(--accent-color), 
+    rgba(64, 64, 255, 0.9)
+  );
+  box-shadow: 0 0 15px rgba(64, 64, 255, 0.5);
+}
+
+.mission-container::-webkit-scrollbar-track {
+  background: rgba(32, 32, 64, 0.3);
+  border-radius: 10px;
+}
