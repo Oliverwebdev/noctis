@@ -105,3 +105,8 @@
     padding: 1rem;
   }
 }
+
+.lang-btn.active-lang img {
+  box-shadow: 0 0 10px var(--accent-color, #38bdf8);
+  transform: scale(1.1);
+}

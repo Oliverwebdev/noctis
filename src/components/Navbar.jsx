@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import LogoImg from "../assets/eyeofnoctis.png";      // <─ PNG aus assets‑Ordner
+import { useTranslation } from "react-i18next";
+import LogoImg from "../assets/eyeofnoctis.png";
 import "./Navbar.css";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const { t } = useTranslation();
 
-  // Nav‑Menü bei Routenwechsel schließen
+  /* ——— Route‑ & Outside‑Handling ——— */
   useEffect(() => setIsMenuOpen(false), [location]);
 
-  // Outside‑Click → Menü zu
   useEffect(() => {
     if (!isMenuOpen) return;
     const onOutside = (e) =>
@@ -25,11 +26,12 @@ const Navbar = () => {
     };
   }, [isMenuOpen]);
 
+  /* ——— Reusable Link‑Set ——— */
   const NavLinks = () => (
     <>
-      <Link to="/"       className={`nav-link ${location.pathname === "/"        ? "active" : ""}`}>Home</Link>
-      <Link to="/mission" className={`nav-link ${location.pathname === "/mission" ? "active" : ""}`}>Mission</Link>
-      <Link to="/beyond"  className={`nav-link ${location.pathname === "/beyond"  ? "active" : ""}`}>Beyond</Link>
+      <Link to="/"        className={`nav-link ${location.pathname === "/"        ? "active" : ""}`}>{t("nav.home")}</Link>
+      <Link to="/mission" className={`nav-link ${location.pathname === "/mission" ? "active" : ""}`}>{t("nav.mission")}</Link>
+      <Link to="/beyond"  className={`nav-link ${location.pathname === "/beyond"  ? "active" : ""}`}>{t("nav.beyond")}</Link>
     </>
   );
 
@@ -51,18 +53,18 @@ const Navbar = () => {
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="mobile-menu-button"
-          aria-label="Toggle menu"
+          aria-label="Menu"
         >
-          {isMenuOpen ? <X /> : <Menu />}
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
-
-        {/* ---------- Mobile Drawer ---------- */}
-        {isMenuOpen && (
-          <div className="navbar-mobile-menu">
-            <NavLinks />
-          </div>
-        )}
       </div>
+
+      {/* ---------- Mobile Panel ---------- */}
+      {isMenuOpen && (
+        <div className="mobile-menu">
+          <NavLinks />
+        </div>
+      )}
     </nav>
   );
 };

@@ -4,6 +4,8 @@
 
 import React, { useEffect, useRef } from 'react';
 import './Landing.css';
+import { useTranslation } from "react-i18next";
+
 
 const Landing = () => {
   /* --------------------------------------------------
@@ -11,6 +13,8 @@ const Landing = () => {
   --------------------------------------------------*/
   const canvasRef = useRef(null);
   const cursorRef = useRef(null);
+    const { t } = useTranslation();
+
   const requestRef = useRef(null);
   const particlesRef = useRef([]);
   const mouseRef = useRef({ x: 0, y: 0, radius: 150 });
@@ -191,18 +195,18 @@ const Landing = () => {
         {/* --- Glitch Title -------------------------------------- */}
         <div className="glitch-container" aria-label="Noctis">
           <span className="glitch-title" data-text="Noctis">Noctis</span>
+          <span aria-hidden="true" className="glitch-title glitch-layer glitch-layer-3">Noctis</span>
           <span aria-hidden="true" className="glitch-title glitch-layer glitch-layer-1">Noctis</span>
           <span aria-hidden="true" className="glitch-title glitch-layer glitch-layer-2">Noctis</span>
-          <span aria-hidden="true" className="glitch-title glitch-layer glitch-layer-3">Noctis</span>
         </div>
 
         {/* --- Tagline ------------------------------------------- */}
         <p className="tagline">
-          Tritt ein – wenn du den Mut hast, den Spiegel deiner selbst zu betrachten.
+          {t("landing.tagline")}
         </p>
 
         {/* --- CTA ---------------------------------------------- */}
-        <button>Eintreten</button>
+        <button>{t("landing.cta")}</button>
       </div>
     </div>
   );
