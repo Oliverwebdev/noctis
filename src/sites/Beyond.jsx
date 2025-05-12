@@ -1,5 +1,5 @@
 import React from "react";
-import { Github, Zap, Share2 } from "lucide-react";
+import { Github, Zap, Share2, Globe } from "lucide-react";
 import { FaTiktok } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import "./Beyond.css";
@@ -60,7 +60,10 @@ const Beyond = () => {
           img={architectImg}
           links={[
             { href: "https://github.com/Oliverwebdev",        Icon: Github,  label: "GitHub" },
-            { href: "https://www.tiktok.com/@gringenerator?_t=8hQxyz4bOW8&_r=1",   Icon: FaTiktok, label: "TikTok" }
+            { href: "https://www.tiktok.com/@gringenerator?_t=8hQxyz4bOW8&_r=1",   Icon: FaTiktok, label: "TikTok" },
+            {
+              href: "https://portfolio-sp-oliver.onrender.com",Icon: Globe,label: "Website",
+            },
           ]}
         >
           {t("beyond.architect.desc")}
