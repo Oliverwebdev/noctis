@@ -1,0 +1,25 @@
+/* Global styles to ensure full-page layouts */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  background-color: #000;
+  color: #fff;
+}
+
+/* Full-page content sections */
+.full-page-section {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  padding-top: 4rem; /* Space for fixed navbar */
+}
+
+/* Ensure content is not hidden behind navbar */
+.page-content {
+  padding-top: 4rem;
+}
