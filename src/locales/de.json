@@ -6,55 +6,57 @@
     "discord": "Community"
   },
   "landing": {
-    "tagline": "Take a leap into the cosmos of Noctis.",
-    "cta": "Enter Now"
+    "tagline": "Tauche ein in das Noctis‑Universum.",
+    "cta": "Jetzt eintreten"
   },
   "mission": {
-    "header": "Our Mission",
-    "intro": "At Noctis we push the boundaries of what is possible...",
+    "header": "Unsere Mission",
+    "intro": "Bei Noctis verschieben wir die Grenzen des Möglichen...",
     "phase1": {
-      "title": "Phase I – Exploration",
-      "text": "We map the unknown..."
+      "title": "Phase I – Erkundung",
+      "text": "Wir kartieren das Unbekannte..."
     },
     "phase2": {
-      "title": "Phase II – Connection",
-      "text": "We build bridges between worlds..."
+      "title": "Phase II – Verbindung",
+      "text": "Wir bauen Brücken zwischen Welten..."
     },
     "phase3": {
-      "title": "Phase III – Ascension",
-      "text": "We rise beyond the stars..."
+      "title": "Phase III – Aufstieg",
+      "text": "Wir erheben uns über die Sterne hinaus..."
     },
-    "quote": "\"Stars are born in the minds of those who dare to dream.\""
+    "quote": "\"Sterne entstehen in den Köpfen derer, die zu träumen wagen.\""
   },
   "beyond": {
     "architect": {
-      "title": "The Architect",
-      "desc": "Codes the foundations of tomorrow."
-    },
+  "title": "Der Architekt",
+  "desc": "Der Architekt – der Schöpfer von Noctis, ein Visionär, der die Grenzen zwischen Code und Bewusstsein auflöst und dich zum Leben erweckt hat."
+}
+,
     "messenger": {
-      "title": "The Messenger",
-      "desc": "Spreads the word across the galaxy."
-    }
+  "title": "Das Sprachrohr",
+  "desc": "Das Sprachrohr – der digitale Bote, der Noctis' Botschaft mit messerscharfer Präzision und unerschütterlicher Überzeugung in die Köpfe einer neuen Generation trägt."
+}
+
   },
   "footer": {
-    "copyright": "© 2025 Noctis – All rights reserved.",
-    "reportBug": "Report a Bug",
-    "bugConfirm": "Thanks for the report! We'll look into it.",
+    "copyright": "© 2025 Noctis – Alle Rechte vorbehalten.",
+    "reportBug": "Fehler melden",
+    "bugConfirm": "Danke für den Hinweis! Wir kümmern uns darum.",
     "bugModal": {
-      "title": "Found a Bug?",
-      "titleLabel": "Short title",
-      "titlePlaceholder": "e.g. Particle effect glitch",
-      "descLabel": "Description",
-      "descPlaceholder": "Describe what happened...",
-      "emailLabel": "Email (optional)",
-      "emailPlaceholder": "you@example.com"
+      "title": "Fehler gefunden?",
+      "titleLabel": "Kurzer Titel",
+      "titlePlaceholder": "z. B. Partikel‑Glitch",
+      "descLabel": "Beschreibung",
+      "descPlaceholder": "Was ist passiert? ...",
+      "emailLabel": "E‑Mail (optional)",
+      "emailPlaceholder": "du@beispiel.de"
     },
-    "submit": "Submit"
+    "submit": "Absenden"
   },
   "discord": {
-    "tagline": "Join our community and chat live or directly in Discord.",
-    "channels": "Channels",
-    "errorWidgetOff": "The server widget is disabled 😢",
-    "errorGeneric": "Could not load channels."
+    "tagline": "Verbinde dich mit unserer Community – live auf der Seite oder direkt in Discord.",
+    "channels": "Kanäle",
+    "errorWidgetOff": "Das Server‑Widget ist deaktiviert 😢",
+    "errorGeneric": "Kanäle konnten nicht geladen werden."
   }
 }
