@@ -1,94 +1,62 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Zap } from 'lucide-react';
-import './Navbar.css';
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X } from "lucide-react";
+import LogoImg from "../assets/eyeofnoctis.png";      // <─ PNG aus assets‑Ordner
+import "./Navbar.css";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Close menu when route changes
+  // Nav‑Menü bei Routenwechsel schließen
+  useEffect(() => setIsMenuOpen(false), [location]);
+
+  // Outside‑Click → Menü zu
   useEffect(() => {
-    setIsMenuOpen(false);
-  }, [location]);
-
-  // Handle outside click to close menu
-  useEffect(() => {
-    const handleOutsideClick = (event) => {
-      const navbar = document.getElementById('navbar');
-      if (navbar && !navbar.contains(event.target)) {
-        setIsMenuOpen(false);
-      }
-    };
-
-    if (isMenuOpen) {
-      document.addEventListener('mousedown', handleOutsideClick);
-      document.addEventListener('touchstart', handleOutsideClick);
-    }
-
+    if (!isMenuOpen) return;
+    const onOutside = (e) =>
+      !document.getElementById("navbar")?.contains(e.target) &&
+      setIsMenuOpen(false);
+    document.addEventListener("mousedown", onOutside);
+    document.addEventListener("touchstart", onOutside);
     return () => {
-      document.removeEventListener('mousedown', handleOutsideClick);
-      document.removeEventListener('touchstart', handleOutsideClick);
+      document.removeEventListener("mousedown", onOutside);
+      document.removeEventListener("touchstart", onOutside);
     };
   }, [isMenuOpen]);
 
   const NavLinks = () => (
     <>
-      <Link 
-        to="/" 
-        className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}
-      >
-        Home
-      </Link>
-      <Link 
-        to="/mission" 
-        className={`nav-link ${location.pathname === '/mission' ? 'active' : ''}`}
-      >
-        Mission
-      </Link>
-      <Link 
-        to="/beyond" 
-        className={`nav-link ${location.pathname === '/beyond' ? 'active' : ''}`}
-      >
-        Beyond
-      </Link>
+      <Link to="/"       className={`nav-link ${location.pathname === "/"        ? "active" : ""}`}>Home</Link>
+      <Link to="/mission" className={`nav-link ${location.pathname === "/mission" ? "active" : ""}`}>Mission</Link>
+      <Link to="/beyond"  className={`nav-link ${location.pathname === "/beyond"  ? "active" : ""}`}>Beyond</Link>
     </>
   );
 
   return (
-    <nav 
-      id="navbar"
-      className={`navbar ${isMenuOpen ? 'navbar-open' : ''}`}
-    >
+    <nav id="navbar" className={`navbar ${isMenuOpen ? "navbar-open" : ""}`}>
       <div className="navbar-container">
-        {/* Logo */}
-        <Link 
-          to="/" 
-          className="navbar-logo"
-        >
-          <Zap />
+        {/* ---------- Logo ---------- */}
+        <Link to="/" className="navbar-logo" aria-label="Noctis Home">
+          <img src={LogoImg} alt="Noctis Logo" />
           Noctis
         </Link>
 
-        {/* Desktop Navigation */}
+        {/* ---------- Desktop Links ---------- */}
         <div className="navbar-links">
           <NavLinks />
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* ---------- Burger ---------- */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="mobile-menu-button"
-          aria-label="Toggle menu"
+          aria-label="Toggle menu"
         >
-          {isMenuOpen ? (
-            <X />
-          ) : (
-            <Menu />
-          )}
+          {isMenuOpen ? <X /> : <Menu />}
         </button>
 
-        {/* Mobile Menu */}
+        {/* ---------- Mobile Drawer ---------- */}
         {isMenuOpen && (
           <div className="navbar-mobile-menu">
             <NavLinks />

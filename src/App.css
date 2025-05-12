@@ -1,3 +1,9 @@
+:root {
+  --nav-h: 4rem;      /* eine Quelle für alle Komponenten */
+  --footer-h: 4rem;
+}
+
+
 /* Global styles to ensure full-page layouts */
 html, body, #root {
   height: 100%;
@@ -21,5 +27,11 @@ html, body, #root {
 
 /* Ensure content is not hidden behind navbar */
 .page-content {
-  padding-top: 4rem;
+  min-height: calc(100vh - var(--nav-h) - var(--footer-h));
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 1023px) {
+  .page-content { min-height: auto; }
 }

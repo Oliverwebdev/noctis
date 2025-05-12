@@ -17,6 +17,8 @@
 }
 
 .navbar-container {
+    height: var(--nav-h, 4rem);   /* ▼ */
+
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
@@ -35,10 +37,14 @@
   font-size: 1.25rem;
 }
 
-.navbar-logo svg {
+.navbar-logo img {
+  width: 1.6rem;          /* ≈ 26 px */
   margin-right: 0.5rem;
-  color: #4040ff;
+  filter: drop-shadow(0 0 6px #4040ff);
 }
+
+.navbar-logo svg { display: none; }   /* altes Blitz‑Icon ausblenden */
+
 
 .navbar-links {
   display: flex;

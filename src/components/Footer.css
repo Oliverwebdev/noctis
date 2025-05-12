@@ -1,0 +1,67 @@
+/* Footer.css */
+.footer {
+  position: fixed;            /* sitzt unten, zählt zur 100vh‑Bilanz */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--footer-h, 4rem);
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  background: rgba(10,10,25,.8);
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.footer-glow {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, transparent 0%, #4040ff33 40%, transparent 80%);
+  animation: neonPulse 6s ease-in-out infinite;
+}
+
+@keyframes neonPulse {
+  0%, 100% { opacity: 0.4; }
+  50%      { opacity: 0.8; }
+}
+
+.footer-inner {
+  position: relative;
+  width: 100%;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  color: #e0e0ff;
+}
+
+.brand { font-size: 1rem; letter-spacing: 0.05em; }
+
+.footer-nav {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.footer-nav a {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+  transition: transform 0.25s;
+}
+
+.footer-nav a:hover {
+  transform: translateY(-2px) scale(1.05);
+  text-shadow: 0 0 6px #4040ff;
+}
+
+.bug-link svg { stroke: #ff0077; }
