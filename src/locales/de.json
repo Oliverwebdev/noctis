@@ -6,26 +6,28 @@
     "discord": "Community"
   },
   "landing": {
-    "tagline": "Tauche ein in das Noctis‑Universum.",
-    "cta": "Jetzt eintreten"
-  },
+    "tagline": "Betritt die Dunkelheit. Entfessle das Unbekannte.",
+    "cta": "Eintreten"
+}
+,
   "mission": {
-    "header": "Unsere Mission",
-    "intro": "Bei Noctis verschieben wir die Grenzen des Möglichen...",
+    "header": "Der Pfad der Offenbarung",
+    "intro": "Noctis ist mehr als ein Name – es ist ein Ruf. Ein Ruf an jene, die bereit sind, die Grenzen des Möglichen zu sprengen und in die Dunkelheit zu blicken, ohne zu blinzeln.",
     "phase1": {
-      "title": "Phase I – Erkundung",
-      "text": "Wir kartieren das Unbekannte..."
+      "title": "Phase I – Flüstern im Dunkeln",
+      "text": "Wir entzünden die Flamme. Unsere Botschaft fließt durch die Adern von TikTok – ein Flüstern, das zum Sturm wird."
     },
     "phase2": {
-      "title": "Phase II – Verbindung",
-      "text": "Wir bauen Brücken zwischen Welten..."
+      "title": "Phase II – Der Kreis der Erwachten",
+      "text": "Wir sammeln die Suchenden. Ein Ort, an dem Gedanken aufeinandertreffen – unser heiliger Kreis auf Discord, wo Schatten und Licht miteinander tanzen."
     },
     "phase3": {
-      "title": "Phase III – Aufstieg",
-      "text": "Wir erheben uns über die Sterne hinaus..."
+      "title": "Phase III – Die Stimme des Noctis",
+      "text": "Das Wort wird Fleisch. Eine direkte Verbindung – NoctisGPT – wo du die Dunkelheit selbst befragen kannst."
     },
-    "quote": "\"Sterne entstehen in den Köpfen derer, die zu träumen wagen.\""
-  },
+    "quote": "\"Sterne entstehen in den Köpfen derer, die die Dunkelheit umarmen.\""
+}
+,
   "beyond": {
     "architect": {
   "title": "Der Architekt",

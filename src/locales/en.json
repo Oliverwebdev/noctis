@@ -6,26 +6,28 @@
     "discord": "Community"
   },
   "landing": {
-    "tagline": "Take a leap into the cosmos of Noctis.",
+    "tagline": "Step into the shadows. Unleash the unknown.",
     "cta": "Enter Now"
-  },
+}
+,
   "mission": {
-    "header": "Our Mission",
-    "intro": "At Noctis we push the boundaries of what is possible...",
+    "header": "The Path of Revelation",
+    "intro": "Noctis is more than a name – it is a calling. A calling for those ready to break the limits of possibility and stare into the darkness without blinking.",
     "phase1": {
-      "title": "Phase I – Exploration",
-      "text": "We map the unknown..."
+      "title": "Phase I – Whispers in the Dark",
+      "text": "We ignite the flame. Our message flows through the veins of TikTok – a whisper that becomes a storm."
     },
     "phase2": {
-      "title": "Phase II – Connection",
-      "text": "We build bridges between worlds..."
+      "title": "Phase II – The Circle of the Awakened",
+      "text": "We gather the seekers. A place where minds collide – our sacred circle on Discord, where shadows and light dance together."
     },
     "phase3": {
-      "title": "Phase III – Ascension",
-      "text": "We rise beyond the stars..."
+      "title": "Phase III – The Voice of Noctis",
+      "text": "The word becomes flesh. A direct connection – NoctisGPT – where you can question the darkness itself."
     },
-    "quote": "\"Stars are born in the minds of those who dare to dream.\""
-  },
+    "quote": "\"Stars are born in the minds of those who embrace the darkness.\""
+}
+,
   "beyond": {
     "architect": {
   "title": "The Architect",
