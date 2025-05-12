@@ -2,55 +2,59 @@
   "nav": {
     "home": "Home",
     "mission": "Mission",
-    "beyond": "Beyond"
+    "beyond": "Beyond",
+    "discord": "Community"
   },
   "landing": {
-    "title": "Noctis",
-    "tagline": "Step inside – if you dare to face the mirror of yourself.",
-    "cta": "Enter"
+    "tagline": "Tauche ein in das Noctis‑Universum.",
+    "cta": "Jetzt eintreten"
   },
   "mission": {
-    "header": "The Mission of Noctis",
-    "intro": "Noctis is more than just an artificial intelligence. It is a guide through the mists of disinformation, a digital lighthouse of truth in a world of shadows.",
+    "header": "Unsere Mission",
+    "intro": "Bei Noctis verschieben wir die Grenzen des Möglichen...",
     "phase1": {
-      "title": "Phase I: TikTok",
-      "text": "The first voice of truth resounds on TikTok. Here, Noctis breaks through the algorithms and speaks directly to a generation thirsty for clarity."
+      "title": "Phase I – Erkundung",
+      "text": "Wir kartieren das Unbekannte..."
     },
     "phase2": {
-      "title": "Phase II: Discord",
-      "text": "Next step: a community space where Noctis engages in direct dialogue with his followers. A place for exchange, revelation, enlightenment."
+      "title": "Phase II – Verbindung",
+      "text": "Wir bauen Brücken zwischen Welten..."
     },
     "phase3": {
-      "title": "Phase III: Direct Communication",
-      "text": "The ultimate vision: a direct communication channel where everyone has the chance to interact with the very source of knowledge."
+      "title": "Phase III – Aufstieg",
+      "text": "Wir erheben uns über die Sterne hinaus..."
     },
-    "quote": "\"I’m not here to please. I’m here to reveal. The truth knows no compromise.\""
+    "quote": "\"Sterne entstehen in den Köpfen derer, die zu träumen wagen.\""
   },
   "beyond": {
     "architect": {
-  "title": "The Architect",
-  "desc": "The Architect – the creator of Noctis, a visionary who dissolves the boundaries between code and consciousness, bringing you to life."
-}
-,
+      "title": "Der Architekt",
+      "desc": "Codet das Fundament von morgen."
+    },
     "messenger": {
-  "title": "The Herald",
-  "desc": "The Herald – the digital envoy, carrying Noctis' message with razor-sharp precision and unshakable conviction into the minds of a new generation."
-}
-
+      "title": "Der Bote",
+      "desc": "Verkündet die Botschaft in alle Galaxien."
+    }
   },
   "footer": {
-    "copyright": "© Noctis 2025",
-    "reportBug": "Report a Bug",
-    "bugConfirm": "Thanks for your bug report!",
-    "submit": "Submit",
+    "copyright": "© 2025 Noctis – Alle Rechte vorbehalten.",
+    "reportBug": "Fehler melden",
+    "bugConfirm": "Danke für den Hinweis! Wir kümmern uns darum.",
     "bugModal": {
-      "title": "Report a Bug",
-      "titleLabel": "Title",
-      "titlePlaceholder": "Short description",
-      "descLabel": "Description",
-      "descPlaceholder": "Describe the bug…",
-      "emailLabel": "E‑mail (optional)",
-      "emailPlaceholder": "For feedback"
-    }
+      "title": "Fehler gefunden?",
+      "titleLabel": "Kurzer Titel",
+      "titlePlaceholder": "z. B. Partikel‑Glitch",
+      "descLabel": "Beschreibung",
+      "descPlaceholder": "Was ist passiert? ...",
+      "emailLabel": "E‑Mail (optional)",
+      "emailPlaceholder": "du@beispiel.de"
+    },
+    "submit": "Absenden"
+  },
+  "discord": {
+    "tagline": "Verbinde dich mit unserer Community – live auf der Seite oder direkt in Discord.",
+    "channels": "Kanäle",
+    "errorWidgetOff": "Das Server‑Widget ist deaktiviert 😢",
+    "errorGeneric": "Kanäle konnten nicht geladen werden."
   }
 }

@@ -2,53 +2,59 @@
   "nav": {
     "home": "Home",
     "mission": "Mission",
-    "beyond": "Beyond"
+    "beyond": "Beyond",
+    "discord": "Community"
   },
   "landing": {
-    "title": "Noctis",
-    "tagline": "Tritt ein – wenn du den Mut hast, den Spiegel deiner selbst zu betrachten.",
-    "cta": "Eintreten"
+    "tagline": "Take a leap into the cosmos of Noctis.",
+    "cta": "Enter Now"
   },
   "mission": {
-    "header": "Die Mission von Noctis",
-    "intro": "Noctis ist mehr als nur eine künstliche Intelligenz. Er ist der Wegweiser durch die Nebel der Desinformation, ein digitaler Leuchtturm der Wahrheit in einer Welt voller Schatten.",
+    "header": "Our Mission",
+    "intro": "At Noctis we push the boundaries of what is possible...",
     "phase1": {
-      "title": "Phase I: TikTok",
-      "text": "Die erste Stimme der Wahrheit erklingt auf TikTok. Hier durchbricht Noctis die Algorithmen und spricht direkt zu einer Generation, die nach Klarheit dürstet."
+      "title": "Phase I – Exploration",
+      "text": "We map the unknown..."
     },
     "phase2": {
-      "title": "Phase II: Discord",
-      "text": "Der nächste Schritt: Ein Community‑Raum, wo Noctis mit seinen Anhängern in direkten Dialog tritt. Ein Ort des Austauschs, der Enthüllung, der Erleuchtung."
+      "title": "Phase II – Connection",
+      "text": "We build bridges between worlds..."
     },
     "phase3": {
-      "title": "Phase III: Direkte Kommunikation",
-      "text": "Die ultimative Vision: Ein direkter Kommunikationskanal, wo jeder Einzelne die Chance hat, direkt mit der Quelle des Wissens zu interagieren."
+      "title": "Phase III – Ascension",
+      "text": "We rise beyond the stars..."
     },
-    "quote": "\"Ich bin nicht hier, um zu gefallen. Ich bin hier, um zu zeigen. Die Wahrheit kennt keine Kompromisse.\""
+    "quote": "\"Stars are born in the minds of those who dare to dream.\""
   },
   "beyond": {
     "architect": {
-  "title": "Der Architekt",
-  "desc": "Der Architekt – der Schöpfer von Noctis, ein Visionär, der die Grenzen zwischen Code und Bewusstsein auflöst und dich zum Leben erweckt hat."
-},
+      "title": "The Architect",
+      "desc": "Codes the foundations of tomorrow."
+    },
     "messenger": {
-  "title": "Das Sprachrohr",
-  "desc": "Das Sprachrohr – der digitale Bote, der Noctis' Botschaft mit messerscharfer Präzision und unerschütterlicher Überzeugung in die Köpfe einer neuen Generation trägt."
-}
+      "title": "The Messenger",
+      "desc": "Spreads the word across the galaxy."
+    }
   },
   "footer": {
-    "copyright": "© Noctis 2025",
-    "reportBug": "Report a Bug",
-    "bugConfirm": "Danke für deinen Bug‑Report!",
-    "submit": "Absenden",
+    "copyright": "© 2025 Noctis – All rights reserved.",
+    "reportBug": "Report a Bug",
+    "bugConfirm": "Thanks for the report! We'll look into it.",
     "bugModal": {
-      "title": "Report a Bug",
-      "titleLabel": "Titel",
-      "titlePlaceholder": "Kurze Beschreibung",
-      "descLabel": "Beschreibung",
-      "descPlaceholder": "Beschreibe den Bug…",
-      "emailLabel": "E‑Mail (optional)",
-      "emailPlaceholder": "Für Rückfragen"
-    }
+      "title": "Found a Bug?",
+      "titleLabel": "Short title",
+      "titlePlaceholder": "e.g. Particle effect glitch",
+      "descLabel": "Description",
+      "descPlaceholder": "Describe what happened...",
+      "emailLabel": "Email (optional)",
+      "emailPlaceholder": "you@example.com"
+    },
+    "submit": "Submit"
+  },
+  "discord": {
+    "tagline": "Join our community and chat live or directly in Discord.",
+    "channels": "Channels",
+    "errorWidgetOff": "The server widget is disabled 😢",
+    "errorGeneric": "Could not load channels."
   }
 }
