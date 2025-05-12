@@ -59,8 +59,8 @@ const Beyond = () => {
           IconLead={Zap}
           img={architectImg}
           links={[
-            { href: "https://github.com/DEIN_USER",        Icon: Github,  label: "GitHub" },
-            { href: "https://www.tiktok.com/@DEIN_USER",   Icon: FaTiktok, label: "TikTok" }
+            { href: "https://github.com/Oliverwebdev",        Icon: Github,  label: "GitHub" },
+            { href: "https://www.tiktok.com/@gringenerator?_t=8hQxyz4bOW8&_r=1",   Icon: FaTiktok, label: "TikTok" }
           ]}
         >
           {t("beyond.architect.desc")}
@@ -74,8 +74,7 @@ const Beyond = () => {
           IconLead={Share2}
           img={messengerImg}
           links={[
-            { href: "https://github.com/BOTE_USER",        Icon: Github,  label: "GitHub" },
-            { href: "https://www.tiktok.com/@BOTE_USER",   Icon: FaTiktok, label: "TikTok" }
+            { href: "https://vm.tiktok.com/ZNdYE1X7H/",   Icon: FaTiktok, label: "TikTok" }
           ]}
         >
           {t("beyond.messenger.desc")}

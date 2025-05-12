@@ -12,7 +12,7 @@ html {
   overflow-x: hidden;
   font-family: 'Orbitron', 'Arial', sans-serif;
   background-color: #000;
-  cursor: none;
+  /* cursor: none; */
   /* Hide default cursor */
 }
 
