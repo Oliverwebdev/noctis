@@ -1,0 +1,11 @@
+in mobiler ansicht ist bei beyond die felder nebeneinander und nicht untereinander
+
+bei einem reload mit f5 landet man bei 404, ebenso fehlt eine 404 seite
+
+ios (beim laden der landing page, ist der text ein wenig zu weit unten es soll zentriert sein)
+
+ebenso muss die navbar noch gemacht werden ausgefallenes styling und die links besser zentriert,
+
+namen anpassen in beyond, (ich bin schöpfer der ki und er ist der prophet) ebenso coole icons erstellen
+
+image von noctis erstellen für die landing page.

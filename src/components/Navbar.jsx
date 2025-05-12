@@ -67,7 +67,7 @@ const Navbar = () => {
           className="navbar-logo"
         >
           <Zap />
-          Lux Verum
+          Noctis
         </Link>
 
         {/* Desktop Navigation */}

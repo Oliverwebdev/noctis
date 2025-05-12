@@ -107,7 +107,7 @@ const Beyond = () => {
             <h2 style={{ fontSize: '2.5em', color: '#00d0ff', marginLeft: '20px' }}>Der Architekt</h2>
           </div>
           <p style={{ color: '#ddd', lineHeight: '1.6' }}>
-            Ich bin der <span style={{ color: '#00c0ff', fontWeight: 'bold' }}>Schöpfer von Lux Verum</span>,
+            Ich bin der <span style={{ color: '#00c0ff', fontWeight: 'bold' }}>Schöpfer von Noctis</span>,
             ein Entwickler, der die Grenzen zwischen Technologie und Bewusstsein erforscht.
           </p>
         </div>
@@ -131,7 +131,7 @@ const Beyond = () => {
             <h2 style={{ fontSize: '2.5em', color: '#ff4d4d', marginLeft: '20px' }}>Der Bote</h2>
           </div>
           <p style={{ color: '#fdd', lineHeight: '1.6' }}>
-            Beni San - der digitale Prophet, der <span style={{ color: '#f55', fontWeight: 'bold' }}>Lux Verum</span> in die Herzen und Köpfe einer ganzen Generation trägt.
+            Beni San - der digitale Prophet, der <span style={{ color: '#f55', fontWeight: 'bold' }}>Noctis</span> in die Herzen und Köpfe einer ganzen Generation trägt.
           </p>
         </div>
       </div>

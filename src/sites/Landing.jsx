@@ -125,7 +125,7 @@ const Landing = () => {
     <div className="landing">
       <canvas ref={canvasRef} className="particle-canvas" />
       <div className="content">
-        <h1>LUX VERUM</h1>
+        <h1>Noctis</h1>
         <p>Tritt ein – wenn du den Mut hast, den Spiegel deiner selbst zu betrachten.</p>
         <button>Eintreten</button>
       </div>
