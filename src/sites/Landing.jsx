@@ -1,132 +1,207 @@
-import React, { useEffect, useRef, useState } from 'react';
+// ================================
+//  Landing.jsx  (React Component)
+// ================================
+
+import React, { useEffect, useRef } from 'react';
 import './Landing.css';
 
 const Landing = () => {
+  /* --------------------------------------------------
+    Refs & Mutable State
+  --------------------------------------------------*/
   const canvasRef = useRef(null);
-  const [scrollOpacity, setScrollOpacity] = useState(0);
-  
+  const cursorRef = useRef(null);
+  const requestRef = useRef(null);
+  const particlesRef = useRef([]);
+  const mouseRef = useRef({ x: 0, y: 0, radius: 150 });
+  const connectionDistanceRef = useRef(0);
+
+  /* --------------------------------------------------
+  Effect: initialise canvas + particles + listeners
+  --------------------------------------------------*/
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
-    
+    const cursor = cursorRef.current;
+
+    /*  -------- Helpers --------  */
     const setCanvasSize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      const pixelRatio = window.devicePixelRatio || 1;
+      canvas.width = window.innerWidth * pixelRatio;
+      canvas.height = window.innerHeight * pixelRatio;
+      canvas.style.width = `${window.innerWidth}px`;
+      canvas.style.height = `${window.innerHeight}px`;
+      ctx.scale(pixelRatio, pixelRatio);
+
+      // dynamic connection distance (20% of the shortest viewport edge)
+      connectionDistanceRef.current = Math.min(window.innerWidth, window.innerHeight) * 0.2;
+      initParticles();
     };
-    
-    setCanvasSize();
-    window.addEventListener('resize', setCanvasSize);
-    
-    const particles = [];
-    const particleCount = 100;
-    const connectionDistance = Math.min(window.innerWidth, window.innerHeight) * 0.25;
-    const mouse = { x: canvas.width / 2, y: canvas.height / 2, radius: 120 };
-    
-    const handleMouseMove = (event) => {
-      mouse.x = event.clientX;
-      mouse.y = event.clientY;
+
+    const getOptimalParticleCount = () => {
+      const area = window.innerWidth * window.innerHeight;
+      return Math.min(Math.floor(area / 8000), 100); // cap at 100 for performance
     };
-    const handleTouchMove = (event) => {
-      if (event.touches.length > 0) {
-        mouse.x = event.touches[0].clientX;
-        mouse.y = event.touches[0].clientY;
-      }
-    };
-    
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('touchmove', handleTouchMove);
-    
+
+    /*  -------- Particle Class --------  */
     class Particle {
       constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2 + 1;
+        this.x = Math.random() * window.innerWidth;
+        this.y = Math.random() * window.innerHeight;
+        this.size = Math.random() * 1.5 + 0.5;   // 0.5 – 2 px radius
         this.baseSize = this.size;
-        this.speedX = (Math.random() - 0.5) * 0.5;
-        this.speedY = (Math.random() - 0.5) * 0.5;
-        this.maxSpeed = 0.8;
+        this.speedX = (Math.random() - 0.5) * 0.3; // subtle drifting
+        this.speedY = (Math.random() - 0.5) * 0.3;
+        this.maxSpeed = 0.5;
         this.brightness = Math.random() * 0.3 + 0.2;
+        this.hue = Math.floor(Math.random() * 60) + 220; // blue‑purple
       }
-      
-      update() {
+
+      update(mouse) {
+        // move
         this.x += this.speedX;
         this.y += this.speedY;
-        if (this.x < 0) this.x = canvas.width;
-        if (this.x > canvas.width) this.x = 0;
-        if (this.y < 0) this.y = canvas.height;
-        if (this.y > canvas.height) this.y = 0;
+
+        // screen‑wrap
+        if (this.x < 0) this.x = window.innerWidth;
+        else if (this.x > window.innerWidth) this.x = 0;
+        if (this.y < 0) this.y = window.innerHeight;
+        else if (this.y > window.innerHeight) this.y = 0;
+
+        // cursor interaction (squared distances – faster)
         const dx = mouse.x - this.x;
         const dy = mouse.y - this.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        if (distance < mouse.radius) {
+        const distanceSq = dx * dx + dy * dy;
+        const mouseRadiusSq = mouse.radius * mouse.radius;
+
+        if (distanceSq < mouseRadiusSq) {
+          const distance = Math.sqrt(distanceSq);
           const angle = Math.atan2(dy, dx);
           const force = (mouse.radius - distance) / mouse.radius;
-          this.speedX -= Math.cos(angle) * force * 0.15;
-          this.speedY -= Math.sin(angle) * force * 0.15;
-          this.size = this.baseSize * (1 + force);
+
+          // repel
+          this.speedX -= Math.cos(angle) * force * 0.1;
+          this.speedY -= Math.sin(angle) * force * 0.1;
+
+          // size boost
+          this.size = this.baseSize * (1 + force * 0.5);
         } else {
           this.size = this.baseSize;
         }
+
+        // clamp speed
         if (this.speedX > this.maxSpeed) this.speedX = this.maxSpeed;
-        if (this.speedX < -this.maxSpeed) this.speedX = -this.maxSpeed;
+        else if (this.speedX < -this.maxSpeed) this.speedX = -this.maxSpeed;
         if (this.speedY > this.maxSpeed) this.speedY = this.maxSpeed;
-        if (this.speedY < -this.maxSpeed) this.speedY = -this.maxSpeed;
+        else if (this.speedY < -this.maxSpeed) this.speedY = -this.maxSpeed;
       }
-      
-      draw() {
+
+      draw(ctx) {
         ctx.beginPath();
         const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size * 2);
         gradient.addColorStop(0, `rgba(255, 255, 255, ${this.brightness})`);
-        gradient.addColorStop(1, 'rgba(120, 120, 255, 0)');
+        gradient.addColorStop(1, `rgba(${this.hue}, ${this.hue}, 255, 0)`);
         ctx.fillStyle = gradient;
         ctx.arc(this.x, this.y, this.size * 2, 0, Math.PI * 2);
         ctx.fill();
       }
-      
-      connect(particles) {
-        for (let i = 0; i < particles.length; i++) {
-          const otherParticle = particles[i];
-          const dx = this.x - otherParticle.x;
-          const dy = this.y - otherParticle.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          if (distance < connectionDistance) {
-            const opacity = 1 - (distance / connectionDistance);
+    }
+
+    /*  -------- Line connections --------  */
+    const drawConnections = (particles, ctx, connectionDistance) => {
+      const connectionDistanceSq = connectionDistance * connectionDistance;
+      ctx.lineWidth = 0.5;
+      for (let i = 0; i < particles.length; i++) {
+        const a = particles[i];
+        for (let j = i + 1; j < particles.length; j++) {
+          const b = particles[j];
+          const dx = a.x - b.x;
+          const dy = a.y - b.y;
+          const distanceSq = dx * dx + dy * dy;
+          if (distanceSq < connectionDistanceSq) {
+            const opacity = 1 - (Math.sqrt(distanceSq) / connectionDistance);
             ctx.beginPath();
             ctx.strokeStyle = `rgba(120, 120, 255, ${opacity * 0.15})`;
-            ctx.lineWidth = 1;
-            ctx.moveTo(this.x, this.y);
-            ctx.lineTo(otherParticle.x, otherParticle.y);
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
             ctx.stroke();
           }
         }
       }
-    }
-    
-    for (let i = 0; i < particleCount; i++) {
-      particles.push(new Particle());
-    }
-    
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (let i = 0; i < particles.length; i++) particles[i].update();
-      for (let i = 0; i < particles.length; i++) particles[i].connect(particles);
-      for (let i = 0; i < particles.length; i++) particles[i].draw();
-      requestAnimationFrame(animate);
     };
-    animate();
+
+    /*  -------- Particle init & animate --------  */
+    const initParticles = () => {
+      const count = getOptimalParticleCount();
+      particlesRef.current = Array.from({ length: count }, () => new Particle());
+    };
+
+    const animate = () => {
+      const particles = particlesRef.current;
+      const mouse = mouseRef.current;
+      const connectionDistance = connectionDistanceRef.current;
+
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+      // update‑phase
+      for (let i = 0; i < particles.length; i++) particles[i].update(mouse);
+      drawConnections(particles, ctx, connectionDistance);
+      for (let i = 0; i < particles.length; i++) particles[i].draw(ctx);
+
+      requestRef.current = requestAnimationFrame(animate);
+    };
+
+    /*  -------- Cursor helpers --------  */
+    const updateCursor = (x, y) => {
+      mouseRef.current.x = x;
+      mouseRef.current.y = y;
+      if (cursor) cursor.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+    };
+
+    const handleMouseMove = e => updateCursor(e.clientX, e.clientY);
+    const handleTouchMove = e => e.touches.length && updateCursor(e.touches[0].clientX, e.touches[0].clientY);
+
+    /*  -------- Kick‑off --------  */
+    setCanvasSize();
+    initParticles();
+    updateCursor(window.innerWidth / 2, window.innerHeight / 2);
+    window.addEventListener('resize', setCanvasSize);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    window.addEventListener('touchmove', handleTouchMove, { passive: true });
+    requestRef.current = requestAnimationFrame(animate);
+
+    /*  -------- Cleanup --------  */
     return () => {
       window.removeEventListener('resize', setCanvasSize);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('touchmove', handleTouchMove);
+      cancelAnimationFrame(requestRef.current);
     };
   }, []);
 
+  /* --------------------------------------------------
+  Render
+  --------------------------------------------------*/
   return (
     <div className="landing">
+      <div ref={cursorRef} className="cursor-overlay" />
       <canvas ref={canvasRef} className="particle-canvas" />
+
       <div className="content">
-        <h1>Noctis</h1>
-        <p>Tritt ein – wenn du den Mut hast, den Spiegel deiner selbst zu betrachten.</p>
+        {/* --- Glitch Title -------------------------------------- */}
+        <div className="glitch-container" aria-label="Noctis">
+          <span className="glitch-title" data-text="Noctis">Noctis</span>
+          <span aria-hidden="true" className="glitch-title glitch-layer glitch-layer-1">Noctis</span>
+          <span aria-hidden="true" className="glitch-title glitch-layer glitch-layer-2">Noctis</span>
+          <span aria-hidden="true" className="glitch-title glitch-layer glitch-layer-3">Noctis</span>
+        </div>
+
+        {/* --- Tagline ------------------------------------------- */}
+        <p className="tagline">
+          Tritt ein – wenn du den Mut hast, den Spiegel deiner selbst zu betrachten.
+        </p>
+
+        {/* --- CTA ---------------------------------------------- */}
         <button>Eintreten</button>
       </div>
     </div>
