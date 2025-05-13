@@ -1,0 +1,10 @@
+import { Router } from "express";
+import { register, login, me, verifyEmail } from "../controllers/auth.controller";
+import { authRequired } from "../middlewares/auth";
+import rateLimit from "express-rate-limit";
+const limiter = rateLimit({ windowMs: 60 * 1000, max: 10 });
+export const authRouter = Router();
+authRouter.post("/register", limiter, register);
+authRouter.get("/verify", verifyEmail);
+authRouter.post("/login", limiter, login);
+authRouter.get("/me", authRequired, me);
