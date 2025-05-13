@@ -1,5 +1,0 @@
-in mobiler ansicht folgende fehler fixen:
-
-im footer: ter tag soll gesamt in einer zeile stehen, nach unten etwas mehr platz
-
-in mission: die überschrift wird abgeschnitten von navbar, ebenso letzte element etwas mehr platz zu footer

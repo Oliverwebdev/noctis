@@ -16,6 +16,15 @@
   color: var(--text-primary);
   overflow: hidden;
   font-family: 'Roboto Mono', monospace;
+   padding-top:    var(--nav-h, 4rem);
+  padding-bottom: var(--footer-h, 4rem);
+}
+
+@media (max-width: 600px) {
+  .mission-container {
+    padding-top:    var(--nav-h, 3.5rem);
+    padding-bottom: calc(var(--footer-h, 3.5rem) + env(safe-area-inset-bottom, 0px) + 0.5rem);
+  }
 }
 
 .particle-background {
@@ -55,7 +64,7 @@
   z-index: 2;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 2rem;
+  padding: 2rem 2rem 3rem;
 }
 
 .mission-header {
@@ -135,6 +144,7 @@
   padding: 2rem;
   background-color: rgba(32, 32, 64, 0.3);
   border-left: 5px solid var(--accent-color);
+  margin-bottom: 0;
 }
 
 .mission-quote blockquote {
@@ -162,22 +172,11 @@
 }
 
 @media (max-width: 1024px) {
-  .mission-stages {
-    grid-template-columns: 1fr;
-  }
-
-  .mission-header h1 {
-    font-size: 2.5rem;
-  }
+  .mission-stages       { grid-template-columns: 1fr; }
+  .mission-header h1    { font-size: 2rem; }
 }
 
 @media (max-width: 768px) {
-  .mission-content {
-    padding: 2rem 1rem;
-  }
-
-  .mission-quote {
-    font-size: 1.1rem;
-    /* margin-bottom: 1em; */
-  }
+  .mission-content      { padding: 2rem 1rem 3rem; }
+  .mission-quote        { font-size: 1.1rem; }
 }
