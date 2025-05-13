@@ -1,5 +1,7 @@
+# Noctis – Futuristic React App with Glitch Vibes 👁️‍🗨️ – Futuristic React App with Glitch Vibes 👁️‍🗨️
 
-# Noctis – Futuristic React App with Glitch Vibes 👁️‍🗨️
+[![Mein Projekt‑Logo](src/assets/logo.png)](https://oliverwebdev.github.io/noctis/)
+
 
 > **Noctis** ist ein dunkles, futuristisches Showcase‑Projekt, das moderne Front‑End‑Techniken, komplexe CSS‑Animationen und Mehrsprachigkeit (DE/EN) kombiniert. Ziel ist es, einen ästhetisch eindrucksvollen Einstieg für eine wachsende Community und künftige Plattform zu bieten.
 
@@ -99,13 +101,7 @@ Neue Sprache hinzufügen:
 
 ### Nächste Aufgaben (Q2 / Q3 2025)
 
-* [ ] **CI Pipeline** (GitHub Actions, Vitest Unit‑Tests, Lighthouse CI)
-* [ ] **Dark/Light Toggle** (system‑based prefers‑color‑scheme)
-* [ ] **A11y Upgrade** (ARIA Labels, Focus Rings, Kontrast‑Fixes)
-* [ ] **SEO & Open Graph** (Meta‑Tags, Sitemap)
-* [ ] **3D Hero** (Spline / Three.js) auf Landing
-* [ ] **Serverless Bug‑Report** (Form → Webhook / Mailjet)
-* [ ] **Weitere Sprachen** (ES, FR)
+*
 
 ---
 
@@ -123,7 +119,7 @@ Pull Requests sind willkommen! Bitte beachte:
 
 ## 📜 Lizenz
 
-MIT© 2025 Noctis Project
+MIT© 2025 Thorsten Project
 
 ---
 
