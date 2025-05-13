@@ -60,5 +60,10 @@
     "channels": "Kanäle",
     "errorWidgetOff": "Das Server‑Widget ist deaktiviert 😢",
     "errorGeneric": "Kanäle konnten nicht geladen werden."
+  },
+  
+  "notfound": {
+    "message": "Verloren im Nichts... diese Seite existiert nicht.",
+    "button": "Zurück zum Orbit"
   }
 }

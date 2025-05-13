@@ -62,5 +62,9 @@
     "channels": "Channels",
     "errorWidgetOff": "The server widget is disabled 😢",
     "errorGeneric": "Could not load channels."
+  },
+  "notfound": {
+    "message": "Lost in the void... this page does not exist.",
+    "button": "Return to the Orbit"
   }
 }
