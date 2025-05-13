@@ -15,7 +15,7 @@
 :root {
   --bg:            #0b0c1a;
   --panel:         rgba(20, 20, 35, 0.55);
-  --neon-cyan:     #00eaff;
+  --neon-cyan:     #00eaff; 
   --neon-pink:     #ff00ff;
   --neon-red:      #2bd30d;
 }
