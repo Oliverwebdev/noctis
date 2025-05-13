@@ -1,6 +1,9 @@
 :root {
   --nav-h: 4rem;      /* eine Quelle für alle Komponenten */
   --footer-h: 4rem;
+  --scroll-thumb:  #4040ff;
+  --scroll-thumb-hover: #38bdf8;
+  --scroll-track: rgba(20,20,40,0.2);
 }
 
 
@@ -17,6 +20,40 @@ html, body, #root {
   color: #fff;
 }
 
+body::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--scroll-track);
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--scroll-thumb), var(--accent-color, #8a2be2));
+  border-radius: 10px;
+  box-shadow: 0 0 8px var(--scroll-thumb);
+  transition: background 0.3s, box-shadow 0.3s;
+  animation: glowScroll 6s ease-in-out infinite;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--scroll-thumb-hover), var(--accent-color, #8a2be2));
+  box-shadow: 0 0 14px var(--scroll-thumb-hover);
+}
+
+/* ---------- Glow Keyframes ---------- */
+@keyframes glowScroll {
+  0%, 100% { box-shadow: 0 0 8px var(--scroll-thumb); }
+  50%      { box-shadow: 0 0 14px var(--scroll-thumb-hover); }
+}
+
+/* ---------- Firefox Thin Scrollbar ---------- */
+body {
+  scrollbar-width: thin;                                        /* 6px Breite   */
+  scrollbar-color: var(--scroll-thumb) var(--scroll-track);     /* thumb track  */
+}
 /* Full-page content sections */
 .full-page-section {
   min-height: 100vh;
