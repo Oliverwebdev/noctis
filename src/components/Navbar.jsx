@@ -1,97 +1,99 @@
+// src/components/Navbar.jsx
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, User, LogIn } from "lucide-react";
+import { Menu, X, User, LogIn, LogOut } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import LogoImg from "../assets/eyeofnoctis.png";
 import LoginModal from "./LoginModal";
 import "./Navbar.css";
+import { useAuth } from "../context/AuthContext";
 
 const Navbar = () => {
+  const { user, logout } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const location = useLocation();
   const { t } = useTranslation();
 
-  /* --- Scroll-Effekt hinzufügen ---------------- */
+  /* Scroll‑Effekt */
   React.useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  /* --- Auto‑Close & Outside‑Click ---------------- */
+  /* Auto‑Close & Outside‑Click */
   React.useEffect(() => setIsMenuOpen(false), [location]);
   React.useEffect(() => {
     if (!isMenuOpen) return;
-    const onOutside = (e) =>
-      !document.getElementById("navbar")?.contains(e.target) &&
-      setIsMenuOpen(false);
-    document.addEventListener("mousedown", onOutside);
-    document.addEventListener("touchstart", onOutside);
+    const outside = (e) =>
+      !document.getElementById("navbar")?.contains(e.target) && setIsMenuOpen(false);
+    document.addEventListener("mousedown", outside);
+    document.addEventListener("touchstart", outside);
     return () => {
-      document.removeEventListener("mousedown", onOutside);
-      document.removeEventListener("touchstart", onOutside);
+      document.removeEventListener("mousedown", outside);
+      document.removeEventListener("touchstart", outside);
     };
   }, [isMenuOpen]);
 
+  /* Modal öffnen */
   const openLoginModal = () => {
     setIsLoginModalOpen(true);
-    setIsMenuOpen(false); // Close mobile menu if open
+    setIsMenuOpen(false);
   };
 
-  /* --- Links ------------------------------------ */
+  /* Navigation Links */
   const NavLinks = () => (
     <>
-      <Link 
-        to="/" 
-        className={`nav-link ${location.pathname === "/" ? "active" : ""}`}
-      >
-        <span className="nav-text">{t("nav.home")}</span>
-        <span className="nav-hover-effect"></span>
+      <Link to="/"      className={`nav-link ${location.pathname === "/"       ? "active" : ""}`}>
+        <span className="nav-text">{t("nav.home")}</span><span className="nav-hover-effect"></span>
       </Link>
-      
-      <Link 
-        to="/mission" 
-        className={`nav-link ${location.pathname === "/mission" ? "active" : ""}`}
-      >
-        <span className="nav-text">{t("nav.mission")}</span>
-        <span className="nav-hover-effect"></span>
+      <Link to="/mission" className={`nav-link ${location.pathname === "/mission" ? "active" : ""}`}>
+        <span className="nav-text">{t("nav.mission")}</span><span className="nav-hover-effect"></span>
       </Link>
-      
-      <Link 
-        to="/beyond" 
-        className={`nav-link ${location.pathname === "/beyond" ? "active" : ""}`}
-      >
-        <span className="nav-text">{t("nav.beyond")}</span>
-        <span className="nav-hover-effect"></span>
+      <Link to="/beyond"  className={`nav-link ${location.pathname === "/beyond"  ? "active" : ""}`}>
+        <span className="nav-text">{t("nav.beyond")}</span><span className="nav-hover-effect"></span>
       </Link>
-      
-      <Link 
-        to="/discord" 
-        className={`nav-link ${location.pathname === "/discord" ? "active" : ""}`}
-      >
-        <span className="nav-text">{t("nav.discord")}</span>
-        <span className="nav-hover-effect"></span>
+      <Link to="/discord" className={`nav-link ${location.pathname === "/discord" ? "active" : ""}`}>
+        <span className="nav-text">{t("nav.discord")}</span><span className="nav-hover-effect"></span>
       </Link>
-      
-      {/* Login Button */}
-      <button
-        className="nav-link nav-auth-btn"
-        onClick={openLoginModal}
-      >
-        <LogIn size={18} />
-        <span className="nav-text">{t("nav.login")}</span>
-        <span className="nav-hover-effect"></span>
-      </button>
+
+      {/* Auth Links */}
+      {user ? (
+        <>
+          <Link
+            to="/profile"
+            className={`nav-link ${location.pathname === "/profile" ? "active" : ""}`}
+          >
+            <User size={18} />
+            <span className="nav-text">{t("nav.profile")}</span>
+            <span className="nav-hover-effect"></span>
+          </Link>
+
+          <button className="nav-link nav-auth-btn" onClick={logout}>
+            <LogOut size={18} />
+            <span className="nav-text">{t("nav.logout")}</span>
+            <span className="nav-hover-effect"></span>
+          </button>
+        </>
+      ) : (
+        <button className="nav-link nav-auth-btn" onClick={openLoginModal}>
+          <LogIn size={18} />
+          <span className="nav-text">{t("nav.login")}</span>
+          <span className="nav-hover-effect"></span>
+        </button>
+      )}
     </>
   );
 
   return (
     <>
-      <nav id="navbar" className={`navbar ${isMenuOpen ? "navbar-open" : ""} ${isScrolled ? "navbar-scrolled" : ""}`}>
+      <nav
+        id="navbar"
+        className={`navbar ${isMenuOpen ? "navbar-open" : ""} ${isScrolled ? "navbar-scrolled" : ""}`}
+      >
+        {/* Cosmic FX */}
         <div className="navbar-cosmic-bg">
           <div className="cosmic-star star1"></div>
           <div className="cosmic-star star2"></div>
@@ -99,7 +101,7 @@ const Navbar = () => {
           <div className="cosmic-line line1"></div>
           <div className="cosmic-line line2"></div>
         </div>
-        
+
         <div className="navbar-container">
           {/* Logo */}
           <Link to="/" className="navbar-logo" aria-label="Noctis Home">
@@ -137,9 +139,9 @@ const Navbar = () => {
       </nav>
 
       {/* Login Modal */}
-      <LoginModal 
-        isOpen={isLoginModalOpen} 
-        onClose={() => setIsLoginModalOpen(false)} 
+      <LoginModal
+        isOpen={isLoginModalOpen}
+        onClose={() => setIsLoginModalOpen(false)}
       />
     </>
   );
