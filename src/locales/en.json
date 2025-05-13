@@ -66,5 +66,33 @@
   "notfound": {
     "message": "Lost in the void... this page does not exist.",
     "button": "Return to the Orbit"
+  },
+  
+  "nav": {
+    "home": "Home",
+    "mission": "Mission",
+    "beyond": "Beyond",
+    "discord": "Discord",
+    "login": "Login"
+  },
+  "login": {
+    "title": "Login",
+    "action": "Login",
+    "email": "Email",
+    "emailPlaceholder": "your@email.com",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "submit": "Sign In",
+    "rememberMe": "Remember Me",
+    "forgotPassword": "Forgot Password?"
+  },
+  "register": {
+    "title": "Create Account",
+    "action": "Register",
+    "username": "Username",
+    "usernamePlaceholder": "Choose a username",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "Confirm your password",
+    "submit": "Create Account"
   }
 }

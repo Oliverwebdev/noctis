@@ -65,5 +65,33 @@
   "notfound": {
     "message": "Verloren im Nichts... diese Seite existiert nicht.",
     "button": "Zurück zum Orbit"
+  },
+  
+  "nav": {
+    "home": "Home",
+    "mission": "Mission",
+    "beyond": "Beyond",
+    "discord": "Discord",
+    "login": "Anmelden"
+  },
+  "login": {
+    "title": "Anmelden",
+    "action": "Anmelden",
+    "email": "E-Mail",
+    "emailPlaceholder": "deine@email.de",
+    "password": "Passwort",
+    "passwordPlaceholder": "Passwort eingeben",
+    "submit": "Einloggen",
+    "rememberMe": "Angemeldet bleiben",
+    "forgotPassword": "Passwort vergessen?"
+  },
+  "register": {
+    "title": "Konto erstellen",
+    "action": "Registrieren",
+    "username": "Benutzername",
+    "usernamePlaceholder": "Wähle einen Benutzernamen",
+    "confirmPassword": "Passwort bestätigen",
+    "confirmPasswordPlaceholder": "Passwort bestätigen",
+    "submit": "Konto erstellen"
   }
 }
