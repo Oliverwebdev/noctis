@@ -22,6 +22,7 @@ const SocialLink = ({ href, Icon, label }) => (
 );
 
 /* ---------- Card‑Blueprint ---------- */
+/* ---------- Card‑Blueprint ---------- */
 const RoleCard = ({ id, color, title, IconLead, img, children, links }) => (
   <article className="role-card" id={id} style={{ "--accent": color }}>
     <span className="glow-border" aria-hidden="true" />
@@ -43,6 +44,7 @@ const RoleCard = ({ id, color, title, IconLead, img, children, links }) => (
     </div>
   </article>
 );
+
 
 /* ---------- Main Component ---------- */
 const Beyond = () => {

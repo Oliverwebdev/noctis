@@ -17,7 +17,7 @@
   --panel:         rgba(20, 20, 35, 0.55);
   --neon-cyan:     #00eaff;
   --neon-pink:     #ff00ff;
-  --neon-red:      #0d24d3;
+  --neon-red:      #2bd30d;
 }
 
 .beyond-wrapper {
@@ -105,4 +105,71 @@
 /* ---------- Responsiveness ---------- */
 @media (max-width: 1024px) {
   .role-grid { grid-template-columns: 1fr; }   /* stapelt alles */
+}
+
+/* ---------- Advanced Styles ---------- */
+
+/* Neon-Wellen Effekt */
+.glow-border {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(130deg, var(--accent), var(--neon-pink), var(--neon-red));
+  filter: blur(10px);
+  z-index: -1;
+  animation: neonWave 8s ease-in-out infinite alternate;
+}
+
+@keyframes neonWave {
+  0%, 100% { transform: translateY(-4px) scale(1.05); }
+  50%      { transform: translateY(4px) scale(0.95); }
+}
+
+/* Hologramm Glitch */
+.role-avatar {
+  position: relative;
+  width: 150px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+  box-shadow: 0 0 15px var(--accent);
+  margin-bottom: 1.4rem;
+  transition: all 0.4s ease-in-out;
+}
+.role-avatar:hover {
+  filter: hue-rotate(30deg) brightness(1.5);
+  transform: rotate(2deg) scale(1.1);
+  animation: glitch 0.15s steps(2, jump-none) 3;
+}
+
+@keyframes glitch {
+  0% { transform: translate(2px, -2px); }
+  33% { transform: translate(-2px, 2px); }
+  66% { transform: translate(2px, 2px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Holographic Text */
+.role-title {
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(1.9rem, 2.5vw, 2.4rem);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+  color: var(--accent);
+  text-shadow: 0 0 8px var(--accent), 0 0 16px var(--accent), 0 0 24px var(--accent);
+  animation: glowText 4s ease-in-out infinite alternate;
+}
+
+@keyframes glowText {
+  0%, 100% { text-shadow: 0 0 4px var(--accent), 0 0 12px var(--accent); }
+  50% { text-shadow: 0 0 8px var(--accent), 0 0 24px var(--accent); }
+}
+
+/* 3D Hover für Social Icons */
+.social-btn:hover {
+  transform: scale(1.25) rotate(5deg) translateZ(10px);
+  filter: drop-shadow(0 0 6px var(--accent));
 }
