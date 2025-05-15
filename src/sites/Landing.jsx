@@ -182,7 +182,44 @@ const Landing = () => {
       cancelAnimationFrame(requestRef.current);
     };
   }, []);
-
+  /* ------------------------------------- */
+/*  Hilfs-Komponente für Glitch-Text     */
+/* ------------------------------------- */
+const GlitchText = ({ text }) => {
+  // State für die Interaktivität (optional)
+  const [isGlitching, setIsGlitching] = React.useState(false);
+  
+  // Dynamische Klasse basierend auf Glitch-Status
+  const glitchClass = isGlitching ? "glitching" : "";
+  
+  return (
+    <span 
+      className={`glitch-text-wrapper ${glitchClass}`}
+      onMouseEnter={() => setIsGlitching(true)}
+      onMouseLeave={() => setIsGlitching(false)}
+      style={{
+        "--char-count": text.length
+      }}
+    >
+      {text.split("").map((char, i) => (
+        <span
+          key={i}
+          className="char"
+          data-char={char}
+          style={{ 
+            "--char-index": i,
+            // Zufällige Verzögerung für zufälligeres Glitch-Timing
+            "--random-delay": `${-(Math.random() * 5).toFixed(2)}s`,
+            // Zufälliger Wert für Animation-Variation
+            "--random-factor": (0.7 + Math.random() * 0.6).toFixed(2)
+          }}
+        >
+          {char}
+        </span>
+      ))}
+    </span>
+  );
+};
   /* --------------------------------------------------
   Render
   --------------------------------------------------*/
@@ -194,11 +231,12 @@ const Landing = () => {
       <div className="content">
         {/* --- Glitch Title -------------------------------------- */}
         <div className="glitch-container" aria-label="Noctis">
-          <span className="glitch-title" data-text="Noctis">Noctis</span>
-          <span aria-hidden="true" className="glitch-title glitch-layer glitch-layer-3">Noctis</span>
-          <span aria-hidden="true" className="glitch-title glitch-layer glitch-layer-1">Noctis</span>
-          <span aria-hidden="true" className="glitch-title glitch-layer glitch-layer-2">Noctis</span>
-        </div>
+  <span className="glitch-title" data-text="Noctis">
+    <GlitchText text="Noctis" />
+  </span>
+
+  
+</div>
 
         {/* --- Tagline ------------------------------------------- */}
         <p className="tagline">
