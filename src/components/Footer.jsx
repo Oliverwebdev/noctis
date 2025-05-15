@@ -10,17 +10,49 @@ const Footer = () => {
   const { t, i18n } = useTranslation();
   const [isReportOpen, setIsReportOpen] = useState(false);
   const [bugReport, setBugReport] = useState({ title: "", description: "", email: "" });
+  const [toastMessage, setToastMessage] = useState("");
+  const [showToast, setShowToast] = useState(false);
 
   /* ---------- Bug‑Form ---------- */
   const handleChange = ({ target: { name, value } }) =>
     setBugReport((p) => ({ ...p, [name]: value }));
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Bug Report submitted:", bugReport);
-    alert(t("footer.bugConfirm"));
-    setBugReport({ title: "", description: "", email: "" });
-    setIsReportOpen(false);
+    try {
+      const response = await fetch("https://discord.com/api/webhooks/1372677475867299861/CL_BuBvR7Q-9n__LmQ_cjZ4Tz5qYaPO0_fbBje69md2OTIXXNsQ1uKM7jv3WNZnc8cbC", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username: "Bug Reporter",
+          embeds: [
+            {
+              title: bugReport.title,
+              description: bugReport.description,
+              color: 15844367,
+              fields: [
+                { name: "Email", value: bugReport.email || "N/A", inline: true }
+              ],
+              footer: { text: "Noctis Bug Report" }
+            }
+          ]
+        })
+      });
+      if (response.ok) {
+        setToastMessage(t("footer.bugConfirm"));
+        setShowToast(true);
+        setTimeout(() => setShowToast(false), 3000);
+        setBugReport({ title: "", description: "", email: "" });
+        setIsReportOpen(false);
+      } else {
+        throw new Error("Failed to send bug report");
+      }
+    } catch (error) {
+      console.error("Bug Report submission failed:", error);
+      setToastMessage(t("footer.bugError"));
+      setShowToast(true);
+      setTimeout(() => setShowToast(false), 3000);
+    }
   };
 
   /* ---------- Language Helpers ---------- */
@@ -118,6 +150,9 @@ const Footer = () => {
           </div>,
           document.body
         )}
+
+      {/* ——— Toast ——— */}
+      {showToast && <div className="toast">{toastMessage}</div>}
 
       <div className="cosmic-rays" aria-hidden="true" />
     </footer>

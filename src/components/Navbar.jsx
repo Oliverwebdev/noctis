@@ -60,30 +60,7 @@ const Navbar = () => {
       </Link>
 
       {/* Auth Links */}
-      {user ? (
-        <>
-          <Link
-            to="/profile"
-            className={`nav-link ${location.pathname === "/profile" ? "active" : ""}`}
-          >
-            <User size={18} />
-            <span className="nav-text">{t("nav.profile")}</span>
-            <span className="nav-hover-effect"></span>
-          </Link>
-
-          <button className="nav-link nav-auth-btn" onClick={logout}>
-            <LogOut size={18} />
-            <span className="nav-text">{t("nav.logout")}</span>
-            <span className="nav-hover-effect"></span>
-          </button>
-        </>
-      ) : (
-        <button className="nav-link nav-auth-btn" onClick={openLoginModal}>
-          <LogIn size={18} />
-          <span className="nav-text">{t("nav.login")}</span>
-          <span className="nav-hover-effect"></span>
-        </button>
-      )}
+      
     </>
   );
 

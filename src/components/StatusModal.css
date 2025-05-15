@@ -1,0 +1,97 @@
+/* === Cosmic-Glitch-Dialog =================================== */
+.status-backdrop {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(2px);
+  z-index: 1000;
+}
+
+/* Grundlayout ------------------------------------------------ */
+.status-modal {
+  position: relative;
+  width: 26rem;
+  max-width: 90vw;
+  padding: 2rem 3rem;
+  text-align: center;
+  background: #0d0d0d;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(0, 255, 245, 0.25);
+  overflow: hidden;
+}
+
+/* Glitch-Overlay */
+.status-modal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    transparent 40%,
+    rgba(0, 255, 245, 0.07),
+    transparent 60%
+  );
+  filter: blur(22px);
+  animation: glitch 3s infinite ease-in-out;
+  pointer-events: none;
+}
+
+/* Farbvarianten */
+.status-modal.success { box-shadow: 0 0 22px rgba(0, 255, 120, 0.4); }
+.status-modal.error   { box-shadow: 0 0 22px rgba(255, 50, 50, 0.45); }
+
+/* Inhalt ----------------------------------------------------- */
+.status-icon     { margin-bottom: 1rem; }
+.status-message  { color: #e0e0e0; margin-bottom: 1.5rem; line-height: 1.4; }
+
+/* Aktion-Button */
+.status-action {
+  position: relative;
+  display: inline-block;
+  padding: 0.6rem 1.6rem;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 0.8rem;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  overflow: hidden;
+}
+.status-action:hover { transform: translateY(-2px); }
+
+.status-action .btn-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    45deg,
+    rgba(0, 255, 255, 0.35),
+    rgba(0, 255, 255, 0.05)
+  );
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+.status-action:hover .btn-glow { opacity: 1; }
+
+/* Close-Icon */
+.status-close {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+  background: none;
+  border: none;
+  color: #888;
+  cursor: pointer;
+}
+
+/* Glitch-Anim */
+@keyframes glitch {
+  0%, 100% { opacity: 0.14; }
+  50%      { opacity: 0.28; }
+}

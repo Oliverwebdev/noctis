@@ -53,6 +53,15 @@ const LoginModal = ({ isOpen, onClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Basic validation
+    if (!formData.email || !formData.password) {
+      alert(t("login.validationError"));
+      return;
+    }
+    if (!isLogin && formData.password !== formData.confirmPassword) {
+      alert(t("register.passwordMismatch"));
+      return;
+    }
     // Here you would handle form submission, validation, and API calls to your backend
     console.log("Form submitted:", formData);
     

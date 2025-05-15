@@ -348,3 +348,25 @@
     justify-self: center;
   }
 }
+
+/* Toast Styles */
+.toast {
+  position: fixed;
+  bottom: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(138, 43, 226, 0.9);
+  color: #e0e0ff;
+  padding: 0.8rem 1.2rem;
+  border-radius: 0.5rem;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.9rem;
+  box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
+  z-index: 12000;
+  animation: fadeInOut 3s ease;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; transform: translate(-50%, 20px); }
+  10%, 90% { opacity: 1; transform: translate(-50%, 0); }
+}
