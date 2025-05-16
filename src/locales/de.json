@@ -56,6 +56,7 @@
     "submit": "Absenden"
   },
   "discord": {
+    "title": "Treten Sie der Noctis-Community bei",
     "tagline": "Verbinde dich mit unserer Community – live auf der Seite oder direkt in Discord.",
     "channels": "Kanäle",
     "errorWidgetOff": "Das Server‑Widget ist deaktiviert 😢",

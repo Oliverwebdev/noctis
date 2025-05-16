@@ -4,6 +4,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import "./Discord.css";
+import GlitchText from "../components/GlitchText";
 
 const GUILD_ID = "1371669841458761738";  // Ihre Server-ID
 
@@ -70,7 +71,8 @@ const Discord = () => {
       </div>
       
       <div className="discord-content">
-        <h1 className="glitch-title" ref={titleRef} data-text="Discord">Discord</h1>
+         <GlitchText as="h1" text={t("discord.title")} />
+
         <p className="tagline">{t("discord.tagline") || "Join our community"}</p>
         
         {/* Prominenter Beitrittsbutton */}

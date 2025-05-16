@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useTranslation } from "react-i18next";
+import GlitchText from '../components/GlitchText';
 
 import './Mission.css';
 
@@ -45,7 +46,7 @@ const Mission: React.FC = () => {
       
       <div className="mission-content">
         <div className="mission-header">
-          <h1>{t("mission.header")}</h1>
+          <GlitchText as="h1" text={t("mission.header")} />
           <div className="header-underline"></div>
         </div>
         

@@ -58,6 +58,7 @@
     "submit": "Submit"
   },
   "discord": {
+    "title": "Join the Noctis Community",
     "tagline": "Join our community and chat live or directly in Discord.",
     "channels": "Channels",
     "errorWidgetOff": "The server widget is disabled 😢",
