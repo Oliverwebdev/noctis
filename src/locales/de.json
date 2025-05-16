@@ -61,7 +61,8 @@
     "tagline": "Eintauchen. Verbinden. Diskutieren – hier und auf Discord.",
     "channels": "Kanäle",
     "errorWidgetOff": "Das Server‑Widget ist deaktiviert 😢",
-    "errorGeneric": "Kanäle konnten nicht geladen werden."
+    "errorGeneric": "Kanäle konnten nicht geladen werden.",
+    "members": "Mitglieder"
   },
   
   "notfound": {

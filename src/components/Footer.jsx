@@ -20,7 +20,7 @@ const Footer = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("https://discord.com/api/webhooks/1372677475867299861/CL_BuBvR7Q-9n__LmQ_cjZ4Tz5qYaPO0_fbBje69md2OTIXXNsQ1uKM7jv3WNZnc8cbC", {
+      const response = await fetch( import.meta.Discord_Fetch , {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

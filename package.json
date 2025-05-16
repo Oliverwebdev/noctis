@@ -14,6 +14,7 @@
   "dependencies": {
     "@types/styled-components": "^5.1.34",
     "@widgetbot/react-embed": "^1.9.0",
+    "dotenv": "^16.5.0",
     "i18next": "^25.1.2",
     "i18next-browser-languagedetector": "^8.1.0",
     "lucide-react": "^0.509.0",

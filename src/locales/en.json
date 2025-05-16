@@ -63,7 +63,8 @@
     "tagline": "Immerse. Connect. Converse – here and on Discord.",
     "channels": "Channels",
     "errorWidgetOff": "The server widget is disabled 😢",
-    "errorGeneric": "Could not load channels."
+    "errorGeneric": "Could not load channels.",
+    "members": "Members"
   },
   "notfound": {
     "message": "Lost in the void... this page does not exist.",

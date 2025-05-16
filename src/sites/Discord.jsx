@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import "./Discord.css";
 import GlitchText from "../components/GlitchText";
 
-const GUILD_ID = "1371669841458761738";  // Ihre Server-ID
+const GUILD_ID = import.meta.VITE_GUILD_ID  // Ihre Server-ID
 
 const Discord = () => {
   const { t } = useTranslation();
