@@ -3,6 +3,7 @@
 // ================================
 
 import React, { useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Landing.css';
 import { useTranslation } from "react-i18next";
 
@@ -13,7 +14,8 @@ const Landing = () => {
   --------------------------------------------------*/
   const canvasRef = useRef(null);
   const cursorRef = useRef(null);
-    const { t } = useTranslation();
+  const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const requestRef = useRef(null);
   const particlesRef = useRef([]);
@@ -220,6 +222,12 @@ const GlitchText = ({ text }) => {
     </span>
   );
 };
+
+  /* Handler for Discord button click */
+  const handleDiscordClick = () => {
+    navigate('/discord');
+  };
+
   /* --------------------------------------------------
   Render
   --------------------------------------------------*/
@@ -231,20 +239,20 @@ const GlitchText = ({ text }) => {
       <div className="content">
         {/* --- Glitch Title -------------------------------------- */}
         <div className="glitch-container" aria-label="Noctis">
-  <span className="glitch-title" data-text="Noctis">
-    <GlitchText text="Noctis" />
-  </span>
-
-  
-</div>
+          <span className="glitch-title" data-text="Noctis">
+            <GlitchText text="Noctis" />
+          </span>
+        </div>
 
         {/* --- Tagline ------------------------------------------- */}
         <p className="tagline">
           {t("landing.tagline")}
         </p>
 
-        {/* --- CTA ---------------------------------------------- */}
-        <button>{t("landing.cta")}</button>
+        {/* --- CTA with Discord link ----------------------------- */}
+        <button onClick={handleDiscordClick}>
+          {t("landing.cta")}
+        </button>
       </div>
     </div>
   );
