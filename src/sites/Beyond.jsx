@@ -3,6 +3,7 @@ import { Github, Code, MessageCircle, Globe } from "lucide-react";
 import { FaTiktok } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import "./Beyond.css";
+import GlitchText from "../components/GlitchText";
 
 /* ---------- Assets ---------- */
 const architectImg  = "./Profilbild.jpeg";
@@ -51,7 +52,10 @@ const Beyond = () => {
   const { t } = useTranslation();
 
   return (
+
+    
     <section className="beyond-wrapper">
+      <div><GlitchText as="h1" text={t("beyond.title")} /></div>
       <div className="role-grid">
         {/* Architekt */}
         <RoleCard
