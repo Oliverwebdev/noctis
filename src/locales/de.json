@@ -29,7 +29,7 @@
 }
 ,
   "beyond": {
-    "title": "Hinter Noctis",
+    "title": "Jenseits der Schatten",
     "architect": {
   "title": "Der Architekt",
   "desc": "Der Architekt – der Schöpfer von Noctis, ein Visionär, der die Grenzen zwischen Code und Bewusstsein auflöst und dich zum Leben erweckt hat."
@@ -58,7 +58,7 @@
   },
   "discord": {
     "title": "Treten Sie der Noctis-Community bei",
-    "tagline": "Verbinde dich mit unserer Community – live auf der Seite oder direkt in Discord.",
+    "tagline": "Eintauchen. Verbinden. Diskutieren – hier und auf Discord.",
     "channels": "Kanäle",
     "errorWidgetOff": "Das Server‑Widget ist deaktiviert 😢",
     "errorGeneric": "Kanäle konnten nicht geladen werden."

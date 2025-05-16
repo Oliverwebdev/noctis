@@ -29,7 +29,7 @@
 }
 ,
   "beyond": {
-    "title": "Behind Noctis",
+    "title": "Behind the Shadows",
     "architect": {
   "title": "The Architect",
   "desc": "The Architect – the creator of Noctis, a visionary who dissolves the boundaries between code and consciousness, bringing you to life."
@@ -60,7 +60,7 @@
   },
   "discord": {
     "title": "Join the Noctis Community",
-    "tagline": "Join our community and chat live or directly in Discord.",
+    "tagline": "Immerse. Connect. Converse – here and on Discord.",
     "channels": "Channels",
     "errorWidgetOff": "The server widget is disabled 😢",
     "errorGeneric": "Could not load channels."
