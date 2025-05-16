@@ -72,6 +72,8 @@ const Discord = () => {
       
       <div className="discord-content">
          <GlitchText as="h1" text={t("discord.title")} />
+        
+        
 
         <p className="tagline">{t("discord.tagline") || "Join our community"}</p>
         
