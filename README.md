@@ -119,7 +119,7 @@ Pull Requests sind willkommen! Bitte beachte:
 
 ## 📜 Lizenz
 
-MIT© 2025 Thorsten Project
+MIT© 2025 
 
 ---
 
